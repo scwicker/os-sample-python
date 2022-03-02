@@ -8,9 +8,9 @@ application = Flask(__name__)
 
 def callJiraBack(post_id):
     logging.warning(f'callJira post id = {post_id}')
-    header = {"Content-type": "application/json"}
-    payload = {"issue": post_id}
-    r = requests.post("https://issues.redhat.com/rest/cb-automation/latest/hooks/e95e5bcfcb8a8bed126251d3e110d11bdcc68e0f", data=payload, headers=header)
+    headers = {"Content-type": "application/json"}
+    params = {"issue": post_id}
+    r = requests.post("https://issues.redhat.com/rest/cb-automation/latest/hooks/e95e5bcfcb8a8bed126251d3e110d11bdcc68e0f", params=params, headers=headers)
     logging.warning(f'r = {r}')
     logging.warning(f'r = {r.request.url}')
     logging.warning(f'r = {r.request.body}')
