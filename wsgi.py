@@ -7,7 +7,7 @@ application = Flask(__name__)
 def hello():
     return "Hello World!"
 
-@application.route("/post/<int:post_id>")
+@application.route("/post/<post_id>")
 def show_post(post_id):
     # show the post with the given id, the id is an integer
     return f'Post {post_id}'
