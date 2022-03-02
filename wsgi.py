@@ -6,10 +6,9 @@ import requests
 application = Flask(__name__)
 
 def callJiraBack(post_id):
-    #headers = {'X-API-TOKEN': 'your_token_here'}
+    headers = {'Content-type': 'application/json'}
     payload = {'issues': post_id}
-    r = requests.post("https://issues.redhat.com/rest/cb-automation/latest/hooks/e95e5bcfcb8a8bed126251d3e110d11bdcc68e0f", data=payload)
-    print(r)
+    r = requests.post("https://issues.redhat.com/rest/cb-automation/latest/hooks/e95e5bcfcb8a8bed126251d3e110d11bdcc68e0f", data=payload, headers=headers)
 
 @application.route("/")
 def hello():
