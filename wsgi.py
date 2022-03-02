@@ -1,4 +1,6 @@
 from flask import Flask
+from markupsafe import escape
+
 application = Flask(__name__)
 
 @application.route("/")
