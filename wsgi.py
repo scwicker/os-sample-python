@@ -12,6 +12,9 @@ def callJiraBack(post_id):
     payload = {"issue": post_id}
     r = requests.post("https://issues.redhat.com/rest/cb-automation/latest/hooks/e95e5bcfcb8a8bed126251d3e110d11bdcc68e0f", data=payload, headers=header)
     logging.warning(f'r = {r}')
+    logging.warning(f'r = {r.request.url}')
+    logging.warning(f'r = {r.request.body}')
+    logging.warning(f'r = {r.request.headers}')
 
 @application.route("/")
 def hello():
